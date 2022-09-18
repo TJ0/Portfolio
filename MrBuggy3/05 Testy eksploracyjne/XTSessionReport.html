@@ -1,0 +1,431 @@
+<html><style>
+    @charset "utf-8";
+
+    body {
+        background-color: #fff;
+        font-size: 62.5%;
+        margin: 0;
+        padding: 0;
+        min-width: 1400px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    body * { font-size: 90%; }
+
+    h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+
+    p {
+        margin-bottom: 1.1em;
+        margin-top: 0;
+    }
+
+    #main p.inlineBlock {
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    a:link img, a:visited img { border: none; }
+
+    div.clearFloat {
+        clear: both;
+        font-size: 0;
+        height: 0;
+        line-height: 0px;
+    }
+
+    li.clearFloat { clear: both; }
+
+    ul.symbolList {
+        display: inline;
+        float: left;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .AbsWrap {
+        position: relative;
+        width: 100%;
+    }
+
+    .rowWrap { width: 100%; }
+
+    .TocParentDiv {
+        position: relative;
+        width: 90%;
+        padding-left: 5%;
+        float: left;
+    }
+
+    .ReportHeader {
+        position: relative;
+        width: 95%;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .ReportHeaderLeft {
+        left: 0px;
+        position: absolute;
+        background-color: #0079cc;
+        height: 100%;
+        width: 10px;
+        display: inline-block;
+    }
+
+    .ParentDiv {
+        left: 0px;
+        position: relative;
+        top: 0px;
+        margin-bottom: 0;
+        background-color: #0079cc;
+        padding-top: 0px;
+    }
+
+    .ReportTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 600%;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: absolute;
+        margin-bottom: 0;
+        width: 100%;
+        float: left;
+        padding-left: 5%;
+        padding-top: 50px;
+        display: inline-block;
+    }
+
+    .ReportStatsContainer {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        font-weight: bold;
+        text-align: left;
+        line-height: 130%;
+        position: relative;
+        margin-bottom: 0;
+        width: auto;
+        display: inline-block;
+        float: right;
+        padding-top: 55px;
+    }
+
+    .ReportStatName {
+        display: inline-block;
+        color: #999;
+        width: 110px;
+    }
+
+    .ReportStatValue {
+        display: inline-block;
+        padding-left: 25px;
+    }
+
+    .ExploratoryTestingLabel {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        position: absolute;
+        margin-bottom: 0;
+        width: 100%;
+        float: left;
+        padding-left: 5%;
+        padding-top: 120px;
+        display: inline-block;
+    }
+
+    .ReportGenerationText {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: absolute;
+        margin-bottom: 0;
+        float: left;
+        padding-left: 5.4%;
+        padding-top: 220px;
+        display: inline-block;
+    }
+
+    .TocTitleDiv {
+        position: relative;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+        background: #eee;
+    }
+
+    .TocHeader {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding: 15px;
+        position: relative;
+    }
+
+    .line {
+        position: relative;
+        margin-bottom: 0;
+        border-bottom: 2px solid #ccc;
+        height: 2px;
+        overflow: hidden;
+    }
+
+    .TocWorkItemDate {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 135px;
+    }
+
+    .TocWorkItemId {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 50px;
+    }
+
+    .TocWorkItemTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        display: inline-block;
+        width: 82%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+    }
+
+    .ellipses {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .GreyedTileDiv {
+        position: relative;
+        margin-bottom: 0;
+        background-color: #eee;
+        width: 100%;
+        min-height: 65px;
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        overflow: auto;
+    }
+
+    .GreyedTileFooterDiv {
+        position: relative;
+        margin-bottom: 0;
+        background-color: #eee;
+        width: 100%;
+        padding-top: 0px;
+        height: 60px;
+    }
+
+    .WorkItemId {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        position: relative;
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    .WorkItemDate {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #999;
+        line-height: 100%;
+        padding-bottom: 1px;
+        padding-top: 1px;
+        position: relative;
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    .WorkItemTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-bottom: 5px;
+        padding-top: 1px;
+        position: relative;
+        display: inline-block;
+        padding-left: 15px
+    }
+
+    .WorkItemDescription {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        padding-left: 15px;
+        position: relative;
+        margin-bottom: 0;
+        overflow: auto;
+    }
+
+    .ReportEndText {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        position: relative;
+        margin-bottom: 0;
+        padding: 15px;
+    }
+
+    .ReportFooter {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .EndLine {
+        bottom: 0px;
+        position: relative;
+        margin-bottom: 0;
+        border-bottom: 2px solid #ccc;
+        height: 1px;
+        overflow: hidden;
+    }
+
+    .ReportFooterInfo {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: relative;
+        bottom: 0px;
+        margin-bottom: 0;
+    }
+
+    .LeftFixedDiv {
+        position: fixed;
+        left: 0px;
+        bottom: 0%;
+        font-size: 450%;
+    }
+
+    .DownloadXTSessionReport {
+        font-size: 35%;
+        background-color: #0079cc;
+        color: #ffffff;
+        padding: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
+        z-index: 9999;
+        position: relative;
+    }
+
+    .LeftFixedDiv a:link { text-decoration: none }
+    .DownloadXTSessionReport a:link { text-decoration: none }
+    .inlineBlock a:link { text-decoration: none }
+    .TocWorkItemId a:link { text-decoration: none }
+</style><body>
+<div class="ReportHeader">
+    <div class="ReportHeaderLeft">
+    </div>
+    <div class="ReportTitle">
+        <p class="inlineBlock">
+            Session Report
+        </p>
+    </div>
+    <div class="ReportStatsContainer" id="ReportStatsContainer"><div class="ReportElement"><div class="ReportStatName">Started On:</div><div class="ReportStatValue">9/18/2022 01:44 PM</div></div><div class="ReportElement"><div class="ReportStatName">Exported On:</div><div class="ReportStatValue">9/18/2022 03:26 PM</div></div><div class="ReportElement"><div class="ReportStatName">Bugs Filed:</div><div class="ReportStatValue">0</div></div><div class="ReportElement"><div class="ReportStatName">Time Zone:</div><div class="ReportStatValue">Central European Summer Time</div></div></div>
+    <div class="ExploratoryTestingLabel">
+        <p><img src="data:image/png;base64,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" style="vertical-align: sub"> Test &amp; Feedback
+        </p>
+    </div>
+    <div class="ReportGenerationText">
+        <p class="inlineBlock" id="ReportGeneratorText">This report was generated using <a href="http://aka.ms/xtmarketplace">Test &amp; Feedback extension</a> for <a href="https://www.azure.com/services/devops">Azure DevOps Services</a> / Team Foundation Server in standalone mode (with limited functionality). Connect to Azure DevOps for the full featured version, learn more - <a href="http://aka.ms/xtlearn">Test &amp; Feedback Marketplace page</a>.</p>
+    </div>
+</div>
+<div class="TocParentDiv">
+    <div>
+        <div class="TocTitleDiv">
+
+            <div class="TocHeader">
+                Summary of bugs filed
+            </div>
+
+        </div>
+        <div id="TableOfContent"></div>
+    </div>
+</div>
+<div id="WorkItems" class="TocParentDiv"><br><br></div>
+<div id="SessionAttachments" class="TocParentDiv"><br><br><div class="TocTitleDiv"><div class="TocHeader"><p class="inlineBlock">Session attachments</p></div></div><div class="line"> </div><br><div class="WorkItemId"><p class="inlineBlock">Note-1</p></div><div class="WorkItemDate"><p class="inlineBlock">9/18/2022 03:24 PM</p></div><br><div class="WorkItemDescription">dsdssds</div><br><br></div>
+<div class="TocParentDiv">
+    <div class="GreyedTileFooterDiv">
+        <div class="ReportEndText">
+            <p class="inlineBlock">
+                End of report.
+            </p>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="ReportFooterInfo">
+        <p class="inlineBlock" id="ReportFooter">Want to track bugs in a more seamless manner? Connect to <a href="https://www.azure.com/services/devops">Azure DevOps</a> for free.</p>
+</div>
+</div>
+
+</body></html>
